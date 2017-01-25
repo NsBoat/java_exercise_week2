@@ -4,27 +4,30 @@
 import java.util.ArrayList;
 
 public class AddressBook {
-    private ArrayList<AddressBookEntry> emailAddressBook;
+    private ArrayList<AddressBookEntry> addressBook;
 
     public AddressBook(){
-        emailAddressBook = new ArrayList<AddressBookEntry>();
+        addressBook = new ArrayList<AddressBookEntry>();
     }
 
-    public void addAddress(AddressBookEntry entry){ emailAddressBook.add(entry); }
+    public void addAddress(AddressBookEntry entry){ addressBook.add(entry); }
 
     public String searchAddressByName(String name){
-        for (AddressBookEntry element : emailAddressBook){
-            if (element.getName() == name){
+        for (AddressBookEntry element : addressBook){
+            if (element.getName().equals(name)){
+                System.out.println(element.getEmail());
                 return element.getEmail();
             }
         }
+        System.out.println("Object not found");
+        return null;
     }
 
     private void removeEntry(String name){
-        private AddressBook i = new AddressBook();
-        for (AddressBookEntry element : emailAddressBook){
+        AddressBook i = new AddressBook();
+        for (AddressBookEntry element : addressBook){
             if (element.getName() == name){
-                emailAddressBook.remove(element);
+                addressBook.remove(element);
             }
         }
 
